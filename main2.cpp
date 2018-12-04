@@ -21,6 +21,10 @@ public:
         return name;
     }
     
+    int get_length(){
+        return int(name.length());
+    }
+    
     void editor(){
         clear();
         cout << "------------Text Editor------------" << endl;
@@ -33,15 +37,14 @@ public:
         stringstream stream;
         string line = "";
         string primary,extra;
-        while(line != "--exit--"){
+        while(true){
             getline(cin, line);
-            
-            if(line != "--exit--"){
+            cout << "\n";
+            if (line == "--exit--") {
+                break;
+            } else {
                 cout << in << ". " << line << "\n";
-                cout << "\n";
-                
                 next.push_back(line);
-                
                 in++;
             }
         }
@@ -70,6 +73,10 @@ public:
         else{
             cout << "File already exists" << endl;
         }
+    }
+    
+    int get_length(){
+        return int(name.length());
     }
     
     void add_text(Text* t){
@@ -167,21 +174,28 @@ public:
     }
     
     void print_files(){
-        cout << "----Files----" << endl;
+        int four_row_counter = 0;
         for(int i = 0; i < next.size(); i++){
-            cout << next[i]->get_name() << endl;
+            cout << next[i]->get_name() << string(16-next[i]->get_length(),' '); // formula to calculate space between words
+            four_row_counter++;
+            if (four_row_counter == 4) {
+                four_row_counter = 0;
+                cout << "\n";
+            }
         }
-        cout << "----Text----" << endl;
-        
+        int four_row_counter2 = 0;
         for(int i = 0; i < texts.size(); i++){
-            cout << texts[i]->get_name() << ".text" << endl;
+            cout << texts[i]->get_name() << string(16-next[i]->get_length(),' '); // formula to calculate space between words
+            if (four_row_counter2 == 4) {
+                four_row_counter2 = 0;
+                cout << "\n";
+            }
         }
-        
+        cout << "\n";
     }
-    
 };
-File *current;
 
+File *current;
 
 
 void show_date() {
@@ -191,13 +205,6 @@ void show_date() {
     cout << asctime(localtm);
 }
 
-
-void displayRow(string listi[10]) {
-    for (int i = 0; i<10; i++) {
-        cout << listi[i] << "  ";
-    }
-    cout << "\n";
-}
 
 void clear(){
     for(int i = 0; i<20; i++){
@@ -277,7 +284,6 @@ void workCommand(string command, bool root) {
     if(root){
         getCommand(primary, extra);
     }
-    
     primary = "";
     extra = "";
 }
@@ -288,10 +294,8 @@ string place(){
     string s;
     while (curr){
         s =curr->get_name() + "/" +s;
-        
         curr = curr->parent;
     }
-    
     return s;
 }
 
@@ -305,6 +309,15 @@ int main(){
     current->new_file("Documents", false);
     current->new_file("Downloads", false);
     current->new_file("Pictures", false);
+    current->new_file("Documents", false);
+    current->new_file("Dodfgloads", false);
+    current->new_file("Pdfgdfgtures", false);
+    current->new_file("Dodfgnts", false);
+    current->new_file("Dodfgads", false);
+    current->new_file("dfgdfgctures", false);
+    current->new_file("Dfdgents", false);
+    current->new_file("Doads", false);
+    current->new_file("Pic", false);
     
     string command = ""; // command stringur fyrir input
     string primary,extra; // primary command er primary, extra er viðbót við það command
