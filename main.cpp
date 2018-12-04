@@ -1,9 +1,11 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <typeinfo>
 #include <sstream>
 #include <ctime>
+
+//prufa123
 
 using namespace std;
 void clear();
