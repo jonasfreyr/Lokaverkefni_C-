@@ -31,11 +31,9 @@ Fyrir Linux
 ```
 ___
 
-## Cliff's commands
+## skipanir Cliff
 
-What things you need to install the software and how to install them
-
-### OS commands
+### OS skipanir
 ```
 cd - 		change directory 
 lf - 		List Files 
@@ -46,7 +44,7 @@ newtext - 	creates a new text
 deltext -	deletes a text
 edit - 		edit a text exit - to exit the program
 ```
-### TEXT commands
+### TEXT skipanir
 ```
 --moveline X-- 	Moves the editing line to X
 --delline X-- 	Deletes the line X
