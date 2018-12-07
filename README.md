@@ -10,7 +10,7 @@ newtext - creates a new text</br>
 deltext - deletes a text</br>
 edit - edit a text
 exit - to exit the program</br>
-
+</br>
 ---TEXT commands---</br>
 --moveline X--  Moves the editing line to X</br>
 --delline X--  Deletes the line X</br>
