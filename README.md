@@ -1,6 +1,6 @@
 # Cliff CLI
 ### Cliff - Command Line Interface
-<img src="cliff_clear.png" width="200">
+<img src="Images/cliff_clear.png" width="200">
 
 
 ## Keyrsla
