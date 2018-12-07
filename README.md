@@ -1,4 +1,4 @@
-# Leiðbeiningar</br>
+#Cliff command line interface
 <img src="cliff_clear.png" width="200">
 
 </br>
