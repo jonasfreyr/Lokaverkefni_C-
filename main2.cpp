@@ -22,7 +22,9 @@ public:
 
 	void editor() {
 		clear();
-		cout << "------------Text Editor------------" << endl;
+		cout << string(14, ' ') << "TEXTeditor" << endl;
+		cout << string(11, ' ') << "version 8.0.1283" << endl;
+
 		int in = 0;
 		for (int i = 0; i < next.size(); i++) {
 			cout << in << ". " << next[i] << endl;
@@ -39,7 +41,6 @@ public:
 				break;
 			}
 			else {
-				//cout << in << ". " << line << "\n";
 				next.push_back(line);
 				in++;
 			}
@@ -79,7 +80,7 @@ public:
 
 	string get_name() { return name; }
 
-	File* get_file(string name) {
+	File* get_file(string name, File* curr) {
 		if (does_exist(name, true)) {
 			for (int i = 0; i < next.size(); i++) {
 				if (next[i]->get_name() == name) {
@@ -87,7 +88,7 @@ public:
 				}
 			}
 		}
-		return next[0];
+		return curr;
 	}
 
 	Text* get_text(string name) {
@@ -198,6 +199,14 @@ public:
 File* current;
 
 void show_date() {
+	/* 
+	Fyrir xcode
+	time_t now = time(0);
+	tm* localtm = localtime(&now);
+	cout << asctime(localtm);
+	*/
+
+	// Fyrir Visual Studio
 	time_t rawtime;
 	time(&rawtime);
 	struct tm timeinfo;
@@ -223,16 +232,28 @@ void getCommand(string a, string b) {
 	}
 	else if (a == "cd") {
 		if (b != "..") {
-			current = current->get_file(b);
+			current = current->get_file(b, current);
 		}
 
 		else {
-			current = current->parent;
+			if (current->parent != nullptr){
+				current = current->parent;
+			}
 		}
 
 	}
 	else if (a == "newfile") {
-		current->new_file(b, true);
+		if (!current->does_exist(b, true)){
+			if (b.find_first_not_of(' ') != std::string::npos) {
+				current->new_file(b, true);
+			}
+			else{
+				cout << "file names cannot be blank" << endl;
+			}
+		}
+		else{
+			cout << "File already exists" << endl;
+		}
 	}
 
 	else if (a == "delfile") {
@@ -245,7 +266,7 @@ void getCommand(string a, string b) {
 
 	else if (a == "newtext") {
 		if (!current->does_exist(b, false)) {
-			if (b != "") {
+			if (b.find_first_not_of(' ') != std::string::npos) {
 				Text* t =
 					new Text(b + ".text");  // makes '.text' a part of the file name
 				t->editor();
@@ -310,7 +331,7 @@ string place() {
 
 int main() {
 	show_date();
-	current = new File("root", NULL, false);
+	current = new File("root", nullptr, false);
 	current->new_file("Downloads", false);
 	current->new_file("Pictures", false);
 	current->new_file("Documents", false);
