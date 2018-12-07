@@ -1,5 +1,5 @@
 # Cliff CLI
-Cliff command line interface
+Cliff command line interface </br>
 <img src="cliff_clear.png" width="200">
 
 </br>
