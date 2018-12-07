@@ -4,6 +4,9 @@
 
 
 ## Keyrsla
+
+Allur kóði er í main.cpp skránni
+
 ### þegar forritið er keyrt gæti það skilað meldingu um "ctime" klasann
 
 > Ef slík melding kemur getur þú commentað show_date fallið út eða skipt því út fyrir kóða hér að neðan.
