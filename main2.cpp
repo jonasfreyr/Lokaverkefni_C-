@@ -4,6 +4,7 @@
 #include <typeinfo>
 #include <sstream>
 #include <ctime>
+#include <regex>
 
 using namespace std;
 void clear();
@@ -31,17 +32,34 @@ public:
 			in++;
 		}
 		cout << endl;
-		stringstream stream;
 		string line = "";
-		string primary, extra;
+		bool command;
+		int inser = in;
 		while (true) {
+			cout << in << "~";
+			command = false;
 			getline(cin, line);
+			string com, num;
+			stringstream ss;
+			ss << line;
+			ss >> com >> num;
+
+			//cout << com << "----" << num << endl;
+
+			if (com == "--moveline"){
+				command = true;
+				int numb = stoi(num);
+				inser = numb;
+				in = numb;
+			}
+
 			cout << "\n";
 			if (line == "--exit--") {
 				break;
 			}
-			else {
-				next.push_back(line);
+			if (command == false){
+				next.insert(next.begin() + inser, line);
+				inser++;
 				in++;
 			}
 		}
@@ -60,6 +78,7 @@ public:
 		name = text;
 		parent = inputParent;
 		deletable = del;
+		//cout << del << endl;
 	}
 
 	void new_file(string name, bool del) {
@@ -139,17 +158,27 @@ public:
 		}
 		return 0;
 	}
+	bool is_del(string name){
+		File* f = get_file(name, this);
+		
+		if (f->deletable){
+			return true;
+		}
 
+		else{
+			return false;
+		}
+
+	}
 	void del_file(string name) {
-		if (this->deletable == true) {
-			cout << "true" << endl;
-		}
-		else if (this->deletable == false){
-			cout << "false" << endl;
-		}
 		if (does_exist(name, true)) {
-			int f = get_index(name, true);
-			next.erase(next.begin() + f);
+			if (is_del(name)){
+				int f = get_index(name, true);
+				next.erase(next.begin() + f);
+			}
+			else{
+				cout << "File " << "'" << name << "'" << " is not deletable" << endl;
+			}
 		}
 		else {
 			cout << "File does not exist." << endl;
@@ -335,14 +364,14 @@ int main() {
 	current->new_file("Downloads", false);
 	current->new_file("Pictures", false);
 	current->new_file("Documents", false);
-	current->new_file("Dodfgloads", false);
-	current->new_file("Pdfgdfgtures", false);
-	current->new_file("Dodfgnts", false);
-	current->new_file("Dodfgads", false);
-	current->new_file("dfgdfgctures", false);
-	current->new_file("Dfdgents", false);
-	current->new_file("Doads", false);
-	current->new_file("Pic", false);
+	current->new_file("Dodfgloads", true);
+	current->new_file("Pdfgdfgtures", true);
+	current->new_file("Dodfgnts", true);
+	current->new_file("Dodfgads", true);
+	current->new_file("dfgdfgctures", true);
+	current->new_file("Dfdgents", true);
+	current->new_file("Doads", true);
+	current->new_file("Pic", true);
 
 
 	string command = "";  // command stringur fyrir input
