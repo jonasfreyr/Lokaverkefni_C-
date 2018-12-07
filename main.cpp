@@ -385,28 +385,20 @@ int main() {
 	current->new_file("Downloads", false);
 	current->new_file("Pictures", false);
 	current->new_file("Documents", false);
-	current->new_file("Dodfgloads", true);
-	current->new_file("Pdfgdfgtures", true);
-	current->new_file("Dodfgnts", true);
-	current->new_file("Dodfgads", true);
-	current->new_file("dfgdfgctures", true);
-	current->new_file("Dfdgents", true);
-	current->new_file("Doads", true);
-	current->new_file("Pic", true);
 
 
 	string command = "";  // command stringur fyrir input
 	string primary,
-		extra;  // primary command er primary, extra er viğbót viğ şağ command
+		extra;  // primary command er primary, extra er viÃ°bÃ³t viÃ° Ã¾aÃ° command
 
 	// cout << current->next << endl;
 
 	while (command != "exit") {
 		cout << place() << ": ";
 		getline(cin, command);
-		workCommand(command, true);  // fall sem vinnur meğ inputtiğ
-		// displayRow(dir); // fall sem prentar út directiory, tekur array sem
-		// færibreytu
+		workCommand(command, true);  // fall sem vinnur meÃ° inputtiÃ°
+		// displayRow(dir); // fall sem prentar Ãºt directiory, tekur array sem
+		// fÃ¦ribreytu
 	}
 
 	return 0;
