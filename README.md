@@ -1,4 +1,4 @@
-# Cliff command line interface
+# Cliff CLI
 <img src="cliff_clear.png" width="200">
 
 </br>
