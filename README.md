@@ -1,5 +1,5 @@
 # Cliff CLI
-<img src="cliff_clear.png" width="200">
+# <img src="cliff_clear.png" width="200">
 
 </br>
 ---OS commands---</br>
