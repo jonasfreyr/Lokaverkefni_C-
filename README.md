@@ -1,5 +1,5 @@
 # Leiðbeiningar</br>
-<img src="cliff.png" width="100" height="100">
+<img src="cliff.png" width="100">
 
 </br>
 ---OS commands---</br>
