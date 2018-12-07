@@ -10,6 +10,15 @@ using namespace std;
 void clear();
 bool does_exist();
 
+vector<string> commands = { "cd - change directory", "lf - List Files", "newfile - creates a new file", "delfile - deletes a file", "clear - clears screen", "newtext - creates a new text", "deltext - deletes a text", "edit - edit a text", "exit - to exit the program" };
+vector<string> tcommands = { "--moveline X--  Moves the editing line to X", "--delline X--  Deletes the line X", "--moveend--   Moves to the editing line to the end", "--print--   Prints the text you have written", "--exit--   To exit the TEXT editor" };
+
+void helpTextPage(){
+	for (int i = 0; i < tcommands.size(); i++){
+		cout << tcommands[i] << endl;
+	}
+}
+
 class Text {
 public:
 	string name;
@@ -58,6 +67,12 @@ public:
 				int numb = stoi(num);
 				next.erase(next.begin() + numb);
 				
+			}
+
+			if (com == "--help--"){
+				command = true;
+				cout << string(14, ' ') << "---Help page---" << endl;
+				helpTextPage();
 			}
 
 			if (com == "--moveend--"){
@@ -267,7 +282,9 @@ void show_date() {
 }
 
 void helpPage(){
-	vector<string> commands = { "cd", "" };
+	for (int i = 0; i < commands.size(); i++){
+		cout << commands[i] << endl;
+	}
 }
 
 void clear() {
@@ -277,7 +294,7 @@ void clear() {
 }
 
 void getCommand(string a, string b) {
-	if (a == "ls") {
+	if (a == "lf") {
 		current->print_files();
 	}
 	else if (a == "cd") {
@@ -349,7 +366,9 @@ void getCommand(string a, string b) {
 	}
 
 	else if (a == "help") {
-		cout << "help page" << endl;
+		cout << "---Help page---" << endl;
+		helpPage();
+
 	}
 
 	else {
@@ -385,20 +404,28 @@ int main() {
 	current->new_file("Downloads", false);
 	current->new_file("Pictures", false);
 	current->new_file("Documents", false);
+	current->new_file("Dodfgloads", true);
+	current->new_file("Pdfgdfgtures", true);
+	current->new_file("Dodfgnts", true);
+	current->new_file("Dodfgads", true);
+	current->new_file("dfgdfgctures", true);
+	current->new_file("Dfdgents", true);
+	current->new_file("Doads", true);
+	current->new_file("Pic", true);
 
 
 	string command = "";  // command stringur fyrir input
 	string primary,
-		extra;  // primary command er primary, extra er viÃ°bÃ³t viÃ° Ã¾aÃ° command
+		extra;  // primary command er primary, extra er viðbót við það command
 
 	// cout << current->next << endl;
 
 	while (command != "exit") {
 		cout << place() << ": ";
 		getline(cin, command);
-		workCommand(command, true);  // fall sem vinnur meÃ° inputtiÃ°
-		// displayRow(dir); // fall sem prentar Ãºt directiory, tekur array sem
-		// fÃ¦ribreytu
+		workCommand(command, true);  // fall sem vinnur með inputtið
+		// displayRow(dir); // fall sem prentar út directiory, tekur array sem
+		// færibreytu
 	}
 
 	return 0;
