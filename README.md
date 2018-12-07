@@ -1,4 +1,6 @@
 # Leiðbeiningar</br>
+![GitHub Logo](cliff.png)
+
 </br>
 ---OS commands---</br>
 cd - change directory </br>
