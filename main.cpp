@@ -1,10 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <typeinfo>
 #include <sstream>
 #include <ctime>
-#include <regex>
 
 using namespace std;
 void clear();
@@ -13,8 +11,8 @@ bool does_exist();
 vector<string> commands = { "cd - change directory", "lf - List Files", "newfile - creates a new file", "delfile - deletes a file", "clear - clears screen", "newtext - creates a new text", "deltext - deletes a text", "edit - edit a text", "exit - to exit the program" };
 vector<string> tcommands = { "--moveline X--  Moves the editing line to X", "--delline X--  Deletes the line X", "--moveend--   Moves to the editing line to the end", "--print--   Prints the text you have written", "--exit--   To exit the TEXT editor" };
 
-void helpTextPage(){
-	for (int i = 0; i < tcommands.size(); i++){
+void helpTextPage() {
+	for (int i = 0; i < tcommands.size(); i++) {
 		cout << tcommands[i] << endl;
 	}
 }
@@ -55,33 +53,35 @@ public:
 
 			//cout << com << "----" << num << endl;
 
-			if (com == "--moveline"){
+			if (com == "--moveline") {
 				command = true;
 				int numb = stoi(num);
 				inser = numb;
 				in = numb;
 			}
 
-			if (com == "--delline"){
+			if (com == "--delline") {
 				command = true;
 				int numb = stoi(num);
 				next.erase(next.begin() + numb);
-				
+				in--;
+				inser--;
+
 			}
 
-			if (com == "--help--"){
+			if (com == "--help--") {
 				command = true;
 				cout << string(14, ' ') << "---Help page---" << endl;
 				helpTextPage();
 			}
 
-			if (com == "--moveend--"){
+			if (com == "--moveend--") {
 				command = true;
 				inser = next.size();
 				in = inser;
 			}
 
-			if (com == "--print--"){
+			if (com == "--print--") {
 				command = true;
 				int i;
 				for (int i = 0; i < next.size(); i++) {
@@ -93,7 +93,7 @@ public:
 			if (line == "--exit--") {
 				break;
 			}
-			if (command == false){
+			if (command == false) {
 				next.insert(next.begin() + inser, line);
 				inser++;
 				in++;
@@ -114,7 +114,6 @@ public:
 		name = text;
 		parent = inputParent;
 		deletable = del;
-		//cout << del << endl;
 	}
 
 	void new_file(string name, bool del) {
@@ -194,25 +193,25 @@ public:
 		}
 		return 0;
 	}
-	bool is_del(string name){
+	bool is_del(string name) {
 		File* f = get_file(name, this);
-		
-		if (f->deletable){
+
+		if (f->deletable) {
 			return true;
 		}
 
-		else{
+		else {
 			return false;
 		}
 
 	}
 	void del_file(string name) {
 		if (does_exist(name, true)) {
-			if (is_del(name)){
+			if (is_del(name)) {
 				int f = get_index(name, true);
 				next.erase(next.begin() + f);
 			}
-			else{
+			else {
 				cout << "File " << "'" << name << "'" << " is not deletable" << endl;
 			}
 		}
@@ -240,7 +239,7 @@ public:
 		for (int i = 0; i < next.size(); i++) {
 			cout << next[i]->get_name()
 				<< string(16 - next[i]->get_length(),
-				' ');  // formula to calculate space between words
+					' ');  // formula to calculate space between words
 			four_row_counter++;
 			if (four_row_counter == 4) {
 				four_row_counter = 0;
@@ -251,7 +250,7 @@ public:
 		for (int i = 0; i < texts.size(); i++) {
 			cout << texts[i]->get_name()
 				<< string(16 - next[i]->get_length(),
-				' ');  // formula to calculate space between words
+					' ');  // formula to calculate space between words
 			if (four_row_counter2 == 4) {
 				four_row_counter2 = 0;
 				cout << "\n";
@@ -264,7 +263,7 @@ public:
 File* current;
 
 void show_date() {
-	/* 
+	/*
 	Fyrir xcode
 	time_t now = time(0);
 	tm* localtm = localtime(&now);
@@ -281,8 +280,8 @@ void show_date() {
 	cout << str;
 }
 
-void helpPage(){
-	for (int i = 0; i < commands.size(); i++){
+void helpPage() {
+	for (int i = 0; i < commands.size(); i++) {
 		cout << commands[i] << endl;
 	}
 }
@@ -303,22 +302,22 @@ void getCommand(string a, string b) {
 		}
 
 		else {
-			if (current->parent != nullptr){
+			if (current->parent != nullptr) {
 				current = current->parent;
 			}
 		}
 
 	}
 	else if (a == "newfile") {
-		if (!current->does_exist(b, true)){
+		if (!current->does_exist(b, true)) {
 			if (b.find_first_not_of(' ') != std::string::npos) {
 				current->new_file(b, true);
 			}
-			else{
+			else {
 				cout << "file names cannot be blank" << endl;
 			}
 		}
-		else{
+		else {
 			cout << "File already exists" << endl;
 		}
 	}
@@ -404,21 +403,10 @@ int main() {
 	current->new_file("Downloads", false);
 	current->new_file("Pictures", false);
 	current->new_file("Documents", false);
-	current->new_file("Dodfgloads", true);
-	current->new_file("Pdfgdfgtures", true);
-	current->new_file("Dodfgnts", true);
-	current->new_file("Dodfgads", true);
-	current->new_file("dfgdfgctures", true);
-	current->new_file("Dfdgents", true);
-	current->new_file("Doads", true);
-	current->new_file("Pic", true);
-
 
 	string command = "";  // command stringur fyrir input
 	string primary,
 		extra;  // primary command er primary, extra er viðbót við það command
-
-	// cout << current->next << endl;
 
 	while (command != "exit") {
 		cout << place() << ": ";
