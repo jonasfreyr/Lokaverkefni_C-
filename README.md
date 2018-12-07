@@ -1,5 +1,5 @@
 # Leiðbeiningar</br>
-![GitHub Logo](cliff.png)
+![GitHub Logo](cliff.png = 100x100)
 
 </br>
 ---OS commands---</br>
