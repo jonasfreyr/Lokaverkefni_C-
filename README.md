@@ -37,26 +37,26 @@ ___
 
 ### OS skipanir
 
-| skipun        | skýring        
+| command        | action        
 | ------------- |:-------------:|
-|	cd      | change directory 	|
+| ```cd```      	| change directory 	|
 | ```lf```		| List Files      	|
 | ```newfile``` 	| creates a new file    |
 | ```delfile```      	| deletes a file	|
 | ```clear```      	| clears screen      	|
-| ```newtext``` 	| creates a new text    |
-| ```deltext```      	| deletes a text 	|
-| ```edit```      	| edit a text      	|
+| ```newtext``` 	| creates a new .text document    |
+| ```deltext```      	| deletes a .text document 	|
+| ```edit```      	| edit a .text document      	|
 | ```exit```		| to exit the program   |
 
 ### TEXTedit skipanir
-| skipun        | skýring        
+| command        | action        
 | ------------- |:-------------:|
-| ```--moveline X--```| Moves the editing line to X    |
-| ```--delline X--``` | Deletes the line X    |
-| ```--moveend--```   | Moves to the editing line to the end	|
-| ```--print--```     | Prints the text you have written     	|
-| ```--exit--```      | To exit the TEXT editor    |
+| ```--moveline X--```| moves the editing line to X    |
+| ```--delline X--``` | deletes the line X    |
+| ```--moveend--```   | moves to the editing line at the end	|
+| ```--print--```     | prints the text you have written     	|
+| ```--exit--```      | to exit the TEXT editor    |
 ## Höfundar
 
 * **Lárus Arnar Sverrisson** - *Initial work*
