@@ -1,6 +1,6 @@
 # Cliff CLI
 ### Cliff - Command Line Interface
-<img src="Images/Cliff_logo.png" width="300">
+<img src="Images/Cliff_logo.png" width="250">
 
 
 ## Keyrsla
@@ -44,9 +44,10 @@ delfile - 	deletes a file
 clear - 	clears screen
 newtext - 	creates a new text
 deltext -	deletes a text
-edit - 		edit a text exit - to exit the program
+edit - 		edit a text 
+exit - 		to exit the program
 ```
-### TEXT skipanir
+### TEXTedit skipanir
 ```
 --moveline X-- 	Moves the editing line to X
 --delline X-- 	Deletes the line X
