@@ -235,6 +235,8 @@ public:
 		if (next.size() == 0 && texts.size() == 0) {
 			cout << "this folder is empty" << endl;
 		}
+
+
 		int four_row_counter = 0;
 		for (int i = 0; i < next.size(); i++) {
 			cout << next[i]->get_name()
@@ -249,7 +251,7 @@ public:
 		int four_row_counter2 = 0;
 		for (int i = 0; i < texts.size(); i++) {
 			cout << texts[i]->get_name()
-				<< string(16 - next[i]->get_length(),
+				<< string(16 - texts[i]->get_length(),
 					' ');  // formula to calculate space between words
 			if (four_row_counter2 == 4) {
 				four_row_counter2 = 0;
