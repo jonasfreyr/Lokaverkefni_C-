@@ -25,9 +25,11 @@ void show_date() {
 ```
 Fyrir Linux
 ```cpp
+void show_date() {
 	time_t now = time(0);
 	tm* localtm = localtime(&now);
 	cout << asctime(localtm);
+}
 ```
 ___
 
