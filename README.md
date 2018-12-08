@@ -38,7 +38,7 @@ ___
 ### OS skipanir
 
 | command        | action        
-| ------------- |:-------------:|
+| ------------- |-------------|
 | ```cd```      	| change directory 	|
 | ```lf```		| List Files      	|
 | ```newfile``` 	| creates a new file    |
@@ -51,7 +51,7 @@ ___
 
 ### TEXTedit skipanir
 | command        | action        
-| ------------- |:-------------:|
+| ------------- |-------------|
 | ```--moveline X--```| moves the editing line to X    |
 | ```--delline X--``` | deletes the line X    |
 | ```--moveend--```   | moves to the editing line at the end	|
