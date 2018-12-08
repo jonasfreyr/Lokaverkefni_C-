@@ -5,7 +5,7 @@
 
 ## Keyrsla
 
-Allur kóði er í main.cpp skránni
+Allur kóði er í  [main.cpp](https://github.com/jonasfreyr/Lokaverkefni_C-/blob/master/main.cpp) skránni
 
 ### þegar forritið er keyrt gæti það skilað meldingu um "ctime" klasann
 
